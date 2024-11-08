@@ -40,9 +40,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $url; ?>categorias">
+                    <a href="<?php echo $url; ?>modulos/categorias">
                         <i data-feather="home"></i>                     
                         <span> Categorías </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo $url; ?>vistas/modulos/clientes">
+                        <i data-feather="home"></i>                     
+                        <span> Clientes </span>
                     </a>
                 </li>
                 
