@@ -29,7 +29,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="<?php echo $url; ?>salir" class="dropdown-item notify-item">
+                    <a href="<?php echo $url; ?>modulos/salir.php" class="dropdown-item notify-item">
                         <i class="mdi mdi-location-exit fs-16 align-middle"></i>
                         <span>Salir</span>
                     </a>

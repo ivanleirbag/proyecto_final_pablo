@@ -15,6 +15,7 @@ INGRESO DE USUARIO
                     $_POST["password"],
                     '$5$rounds=5000$tsegfysefuisehfuisehiusehf$'
                 );
+                echo "Contraseña encriptada: " . $encriptar;
                 $tabla = "usuarios";
                 $item = "email_usuario";
                 $valor = $_POST["email"];
