@@ -54,33 +54,17 @@ $url = PlantillaControlador::url()
          
             <div class="content-page">
                 <div class="content">
-
                     <?php
-
-                        if (isset($_GET["pagina"])) {
-
-                            $pagina = explode("/", $_GET["pagina"]);
-
-                            if (
-                            $pagina[0] == "inicio" ||                         
-                            $pagina[0] == "productos" ||
-                            $pagina[0] == "agregar" ||
-                            $pagina[0] == "editar" ||
-                            $pagina[0] == "salir" ||
-                            $pagina[0] == "categorias" ||
-                            $pagina[0] == "clientes"
-                            ) {
-
-                            include "vistas/modulos/" . $pagina[0] . ".php";
-
-                            }else{
-                                include "vistas/modulos/404.php";
-                            }
-                        }
-
+                    $paginasPermitidas = ["inicio", "agregar", "editar", "salir", "clientes"];
+                    if (isset($_GET["pagina"]) && in_array(explode("/", $_GET["pagina"])[0], $paginasPermitidas)) {
+                        include "vistas/modulos/" . explode("/", $_GET["pagina"])[0] . ".php";
+                    } else {
+                        include "vistas/modulos/404.php";
+                    }
                     ?>
-
-                </div> <!-- content -->
+                </div>
+                <?php include 'modulos/footer.php'; ?>
+            </div> <!-- content -->
 
                 <!-- Footer Start -->
                 <?php include 'modulos/footer.php'; ?>

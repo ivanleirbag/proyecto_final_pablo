@@ -25,15 +25,14 @@ MOSTRAR DATOS
             // pedimos todos los registros
             try {
                 $stmt = Conexion::conectar()->prepare("SELECT c.nombre_cliente, c.apellido_cliente, c.dni_cliente, c.fechaNac_cliente,
-                                                            c.telefono_cliente, c.email_cliente, c.fechaIns_cliente, d.calle_direccion, p.nombre_plan,
+                                                            c.telefono_cliente, c.email_cliente, c.fechaIns_cliente, c.direccion_cliente, p.nombre_plan,
                                                             e.estado_memb FROM clientes as c
-                                                            INNER JOIN direccion as d ON d.id_direccion = c.id_direccion
                                                             INNER JOIN plan as p ON p.id_plan = c.id_plan
                                                             INNER JOIN estados_membresias as e ON e.id_estado_memb = c.id_estado_memb");
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (Exception $e) {
-                "Error: " . $e->getMessage();
+                return "Error: " . $e->getMessage();
             }
         }
     }
@@ -77,7 +76,6 @@ AGREGAR DATOS
     {
         try {
             $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET 
-                                                            id_cliente = :id_cliente,
                                                             nombre_cliente = :nombre_cliente, 
                                                             apellido_cliente = :apellido_cliente, 
                                                             dni_cliente = :dni_cliente, 
@@ -89,7 +87,6 @@ AGREGAR DATOS
                                                             id_plan = :id_plan, 
                                                             id_estado_memb = :id_estado_memb 
                                                             WHERE id_cliente = :id_cliente");
-            $stmt->bindParam(":id_cliente", $datos["id_cliente"], PDO::PARAM_STR);
             $stmt->bindParam(":nombre_cliente", $datos["nombre_cliente"], PDO::PARAM_STR);
             $stmt->bindParam(":apellido_cliente", $datos["apellido_cliente"], PDO::PARAM_STR);
             $stmt->bindParam(":dni_cliente", $datos["dni_cliente"], PDO::PARAM_INT); 

@@ -48,8 +48,8 @@ $clientes = ControladorClientes::ctrMostrarClientes(null, null);
                                     <td><?php echo $value["telefono_cliente"]; ?></td>
                                     <td><?php echo $value["email_cliente"]; ?></td>
                                     <td><?php echo $value["fechaIns_cliente"]; ?></td>
-                                    <td><?php echo $value["id_plan"]; ?></td>
-                                    <td><?php echo $value["id_estado_memb"]; ?></td>
+                                    <td><?php echo $value["nombre_plan"]; ?></td>
+                                    <td><?php echo $value["estado_memb"]; ?></td>
 
                                     <td>
                                         <a href="editar/<?php echo $value["id_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
@@ -79,8 +79,3 @@ $clientes = ControladorClientes::ctrMostrarClientes(null, null);
     ?>
 
 </div>
-
-<?php
-$eliminar = new ControladorProductos();
-$eliminar->ctrEliminarProducto();
-?>

@@ -28,25 +28,7 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="<?php echo $url; ?>inicio">
-                        <i data-feather="home"></i>                     
-                        <span> Dashboard </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $url; ?>productos">
-                        <i data-feather="home"></i>                     
-                        <span> Productos </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $url; ?>modulos/categorias">
-                        <i data-feather="home"></i>                     
-                        <span> Categorías </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $url; ?>vistas/modulos/clientes">
+                    <a href="<?php echo $url; ?>clientes">
                         <i data-feather="home"></i>                     
                         <span> Clientes </span>
                     </a>
