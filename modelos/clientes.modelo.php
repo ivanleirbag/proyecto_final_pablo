@@ -24,7 +24,7 @@ MOSTRAR DATOS
         } else {
             // pedimos todos los registros
             try {
-                $stmt = Conexion::conectar()->prepare("SELECT c.nombre_cliente, c.apellido_cliente, c.dni_cliente, c.fechaNac_cliente,
+                $stmt = Conexion::conectar()->prepare("SELECT c.id_cliente, c.nombre_cliente, c.apellido_cliente, c.dni_cliente, c.fechaNac_cliente,
                                                             c.telefono_cliente, c.email_cliente, c.fechaIns_cliente, c.direccion_cliente, p.nombre_plan,
                                                             e.estado_memb FROM clientes as c
                                                             INNER JOIN plan as p ON p.id_plan = c.id_plan
@@ -87,6 +87,7 @@ AGREGAR DATOS
                                                             id_plan = :id_plan, 
                                                             id_estado_memb = :id_estado_memb 
                                                             WHERE id_cliente = :id_cliente");
+            
             $stmt->bindParam(":nombre_cliente", $datos["nombre_cliente"], PDO::PARAM_STR);
             $stmt->bindParam(":apellido_cliente", $datos["apellido_cliente"], PDO::PARAM_STR);
             $stmt->bindParam(":dni_cliente", $datos["dni_cliente"], PDO::PARAM_INT); 

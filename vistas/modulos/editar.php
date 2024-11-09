@@ -1,6 +1,6 @@
 <?php
 $categorias = ControladorCategorias::ctrMostrarCategorias(null, null);
-$producto = ControladorProductos::ctrMostrarProductos("id_producto",  $pagina[1]);
+$clientes = ControladorClientes::ctrMostrarClientes("id_cliente",  $pagina[1]);
 //echo "<pre>";
 //print_r($producto);
 //echo "</pre>";
@@ -32,10 +32,10 @@ $producto = ControladorProductos::ctrMostrarProductos("id_producto",  $pagina[1]
                 <div class="mb-3">
                     <label for="id_categoria" class="form-label">Categoría</label>
 
-                    <select name="id_categoria" id="id_categoria" class="form-control" required>
+                    <!--<select name="id_categoria" id="id_categoria" class="form-control" required>
 
                     <option value="">Seleccione una opción</option>
-                        <?php
+                        <?php/*
                         foreach ($categorias as $key => $value) { ?>
 
                             <option 
@@ -46,9 +46,9 @@ $producto = ControladorProductos::ctrMostrarProductos("id_producto",  $pagina[1]
                             
                             value="<?php echo $value["id_categoria"]; ?>"><?php echo $value["nombre_categoria"]; ?></option>
 
-                        <?php  } ?>
+                        <?php  } */?>
 
-                    </select>
+                    </select>-->
                 </div>
 
                 <input type="hidden" name="id_producto" value="<?php echo $producto["id_producto"]; ?>">

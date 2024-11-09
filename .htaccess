@@ -4,4 +4,4 @@ Options All -Indexes
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?pagina=$1 [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/?([0-9]*)$ index.php?pagina=$1&id=$2 [L,QSA]

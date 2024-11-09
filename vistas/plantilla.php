@@ -54,8 +54,9 @@ $url = PlantillaControlador::url()
          
             <div class="content-page">
                 <div class="content">
+                    
                     <?php
-                    $paginasPermitidas = ["inicio", "agregar", "editar", "salir", "clientes"];
+                    $paginasPermitidas = ["inicio", "agregar_cliente", "editar_cliente", "clientes", "editar", "salir"];
                     if (isset($_GET["pagina"]) && in_array(explode("/", $_GET["pagina"])[0], $paginasPermitidas)) {
                         include "vistas/modulos/" . explode("/", $_GET["pagina"])[0] . ".php";
                     } else {

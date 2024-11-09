@@ -5,7 +5,7 @@ $clientes = ControladorClientes::ctrMostrarClientes(null, null);
 ?>
 <div class="col-xl-12 mt-3">
 
-    <a class="btn btn-dark" href="agregar"><i class="fas fa-plus"></i> Agregar</a>
+    <a class="btn btn-dark" href="agregar_cliente"><i class="fas fa-plus"></i> Agregar</a>
 
     <?php
     if (count($clientes) > 0) {
@@ -20,7 +20,7 @@ $clientes = ControladorClientes::ctrMostrarClientes(null, null);
                     <table class="table table-hover mb-0">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Apellido</th>
                                 <th scope="col">DNI</th>
@@ -39,7 +39,7 @@ $clientes = ControladorClientes::ctrMostrarClientes(null, null);
 
                                 <tr>
 
-                                    <td><?php echo $key + 1; ?></td>
+                                    <td><?php echo $value["id_cliente"]; ?></td>
                                     <td><?php echo $value["nombre_cliente"]; ?></td>
                                     <td><?php echo $value["apellido_cliente"]; ?></td>
                                     <td><?php echo $value["dni_cliente"]; ?></td>
@@ -52,7 +52,7 @@ $clientes = ControladorClientes::ctrMostrarClientes(null, null);
                                     <td><?php echo $value["estado_memb"]; ?></td>
 
                                     <td>
-                                        <a href="editar/<?php echo $value["id_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="editar_cliente/<?php echo $value["id_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
 
                                         <button type="button" class="btn btn-danger btnEliminar" id_eliminar=<?php echo $value["id_cliente"]; ?>><i class="fas fa-trash"></i></button>
                                     </td>

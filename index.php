@@ -14,5 +14,6 @@ require 'modelos/productos.modelo.php';
 require 'controladores/clientes.controlador.php';
 require 'modelos/clientes.modelo.php';
 
+
 $plantilla = new PlantillaControlador();
 $plantilla -> verPlantilla();
