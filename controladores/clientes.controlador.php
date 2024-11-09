@@ -84,4 +84,20 @@ class ControladorClientes
             }
         }
     }
+    static public function ctrEliminarCliente()
+    {
+        $url = PlantillaControlador::url() . "clientes";
+        if (isset($_GET["id_cliente_eliminar"])) {
+            $tabla = "clientes";
+            $datos = $_GET["id_cliente_eliminar"];
+            $respuesta = ModeloClientes::mdlEliminarCliente($tabla, $datos);
+
+            if ($respuesta == "ok") {
+
+                echo '<script>
+                fncSweetAlert("success", "El cliente se eliminó correctamente", "' . $url . '");
+                </script>';
+            }
+        }
+    }
 }
