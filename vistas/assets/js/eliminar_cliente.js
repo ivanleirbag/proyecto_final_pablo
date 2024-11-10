@@ -1,4 +1,4 @@
-//    JS eliminar
+//    JS eliminar_cliente
 
 $(document).on("click", ".btnEliminarCliente", function () {
   var id_cliente = $(this).attr("id_cliente_eliminar");

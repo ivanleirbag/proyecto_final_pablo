@@ -56,7 +56,10 @@ $url = PlantillaControlador::url()
                 <div class="content">
                     
                     <?php
-                    $paginasPermitidas = ["inicio", "agregar_cliente", "editar_cliente", "clientes", "editar", "salir"];
+                    $paginasPermitidas = ["inicio",
+                                         "agregar_cliente", "editar_cliente", "clientes",
+                                          "estados_memb", "editar_estado_memb", "agregar_estado_memb",
+                                           "salir"];
                     if (isset($_GET["pagina"]) && in_array(explode("/", $_GET["pagina"])[0], $paginasPermitidas)) {
                         include "vistas/modulos/" . explode("/", $_GET["pagina"])[0] . ".php";
                     } else {
@@ -82,6 +85,7 @@ $url = PlantillaControlador::url()
 
         
         <script src="<?php echo $url; ?>vistas/assets/js/eliminar_cliente.js"></script>
+        <script src="<?php echo $url; ?>vistas/assets/js/eliminar_estado_memb.js"></script>
         
     </body>
 

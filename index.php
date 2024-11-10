@@ -14,6 +14,8 @@ require 'modelos/productos.modelo.php';
 require 'controladores/clientes.controlador.php';
 require 'modelos/clientes.modelo.php';
 
+require 'controladores/estados_membresia.controlador.php';
+require 'modelos/estados_membresia.modelo.php';
 
 $plantilla = new PlantillaControlador();
 $plantilla -> verPlantilla();

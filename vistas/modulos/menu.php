@@ -32,6 +32,10 @@
                         <i data-feather="home"></i>                     
                         <span> Clientes </span>
                     </a>
+                    <a href="<?php echo $url; ?>estados_memb">
+                        <i data-feather="home"></i>                     
+                        <span> Estados de Membresia </span>
+                    </a>
                 </li>
                 
             </ul>
