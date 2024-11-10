@@ -1,4 +1,5 @@
-
+<?php $estados_memb = ControladorEstadosMembresia::ctrMostrarEstados(null, null);
+?>
 
 <div class="col-lg-6 mt-3">
     <div class="card">
@@ -13,7 +14,7 @@
 
                 <div class="mb-3">
                     <label for="example-input-normal" class="form-label">Nombre</label>
-                    <input type="text" id="example-input-normal" name="nombre_cliente" class="form-control" placeholder="Nombre" required>
+                    <input type="text" id="example-input-normal" name="nombre_cliente" class="form-control" placeholder="Nombre"required>
                 </div>
 
                 <div class="mb-3">
@@ -58,28 +59,18 @@
 
                 <div class="mb-3">
                     <label for="example-input-normal" class="form-label">Estado de Membresía</label>
-                    <input type="text" id="example-input-normal" name="id_estado_memb" class="form-control" required>
-                </div>
-                    <!--<div class="mb-3">
-                        <label for="id_categoria" class="form-label">Categoría</label>
-
-                        <select name="id_categoria" id="id_categoria" class="form-control" required>
-
+                    <select name="id_estado_memb" id="id_estado_memb" class="form-control" required>
                         <option value="">Seleccione una opción</option>
-                            <?php
-                            /*foreach ($categorias as $key => $value) { ?>
-
-                                <option value="<?php echo $value["id_categoria"]; ?>"><?php echo $value["nombre_categoria"]; ?></option>
-
-                            <?php  } */?>
-
-                        </select>
-                    </div>-->
-
-                    <?php
-                    $agregar = new ControladorClientes();
-                    $agregar->ctrAgregarCliente();
-                    ?>
+                        <?php
+                            foreach ($estados_memb as $key => $value){ ?>
+                                <option value="<?php echo $value["id_estado_memb"]; ?>"><?php echo $value["estado_memb"]; ?></option>
+                            <?php }?>
+                    </select>
+                </div>
+                <?php
+                $agregar = new ControladorClientes();
+                $agregar->ctrAgregarCliente();
+                ?>
 
                 <button class="btn btn-success" type="submit">Guardar</button>
 

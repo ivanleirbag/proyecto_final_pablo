@@ -14,12 +14,12 @@ $estados_memb = ControladorEstadosMembresia::ctrMostrarEstados("id_estado_memb",
             <form method="POST">
                 <div class="mb-3">
                     <label for="example-input-normal" class="form-label">Nombre del estado</label>
-                    <input type="text" id="example-input-normal" name="estado_memb" class="form-control" placeholder="Acvtivo/Inactivo/..." required>
+                    <input type="text" id="example-input-normal" name="estado_memb" class="form-control" placeholder="Acvtivo/Inactivo/..." value="<?php echo $estados_memb["estado_memb"]; ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="example-input-normal" class="form-label">Descripción</label>
-                    <input type="text" id="example-input-normal" name="desc_estado_memb" class="form-control" placeholder="..." required>
+                    <input type="text" id="example-input-normal" name="desc_estado_memb" class="form-control" placeholder="..." value="<?php echo $estados_memb["desc_estado_memb"]; ?>" required>
                 </div>
 
                 <input type="hidden" name="id_estado_memb" value="<?php echo $estados_memb["id_estado_memb"]; ?>">
