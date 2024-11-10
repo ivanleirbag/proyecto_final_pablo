@@ -81,7 +81,7 @@ $url = PlantillaControlador::url()
         <script src="<?php echo $url; ?>vistas/assets/js/app.js"></script>
 
         
-        <script src="<?php echo $url; ?>vistas/assets/js/eliminar.js"></script>
+        <script src="<?php echo $url; ?>vistas/assets/js/eliminar_cliente.js"></script>
         
     </body>
 

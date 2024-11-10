@@ -1,7 +1,7 @@
 //    JS eliminar
-$(document).on("click", ".btnEliminarCliente", function () {
-  var id_cliente = $(this).attr("id_cliente");
 
+$(document).on("click", ".btnEliminarCliente", function () {
+  var id_cliente = $(this).attr("id_cliente_eliminar");
   Swal.fire({
     title: "Está seguro de eliminar el cliente?",
     text: "Si no lo está puede cancelar la acción",
