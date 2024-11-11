@@ -36,6 +36,10 @@
                         <i data-feather="home"></i>                     
                         <span> Estados de Membresia </span>
                     </a>
+                    <a href="<?php echo $url; ?>estados_pago">
+                        <i data-feather="home"></i>                     
+                        <span> Estados de Pago </span>
+                    </a>
                 </li>
                 
             </ul>

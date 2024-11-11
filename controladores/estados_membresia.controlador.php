@@ -69,7 +69,7 @@ class ControladorEstadosMembresia
         if (isset($_GET["id_estado_memb_eliminar"])) {
             $tabla = "estados_membresias";
             $datos = $_GET["id_estado_memb_eliminar"];
-            $respuesta = ModeloEstadosMembresia::mdlEditarEstado($tabla, $datos);
+            $respuesta = ModeloEstadosMembresia::mdlEliminarEstado($tabla, $datos);
             if ($respuesta == "ok") {
 
                 echo '<script>

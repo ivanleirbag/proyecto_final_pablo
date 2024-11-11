@@ -1,14 +1,14 @@
 <?php
 
-$estados_memb = ControladorEstadosMembresia::ctrMostrarEstados(null, null);
+$estados_pago = ControladorEstadosPago::ctrMostrarEstados(null, null);
 
 ?>
 <div class="col-xl-12 mt-3">
 
-    <a class="btn btn-dark" href="agregar_estado_memb"><i class="fas fa-plus"></i> Agregar</a>
+    <a class="btn btn-dark" href="agregar_estado_pago"><i class="fas fa-plus"></i> Agregar</a>
 
     <?php
-    if (count($estados_memb) > 0) {
+    if (count($estados_pago) > 0) {
     ?>
         <div class="card mt-3">
             <div class="card-header">
@@ -22,28 +22,26 @@ $estados_memb = ControladorEstadosMembresia::ctrMostrarEstados(null, null);
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Estado</th>
-                                <th scope="col">Descripción</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <?php foreach ($estados_memb as $key => $value) { ?>
+                            <?php foreach ($estados_pago as $key => $value) { ?>
 
                                 <tr>
 
-                                    <td><?php echo $value["id_estado_memb"]; ?></td>
-                                    <td><?php echo $value["estado_memb"]; ?></td>
-                                    <td><?php echo $value["desc_estado_memb"]; ?></td>
+                                    <td><?php echo $value["id_estado_pago"]; ?></td>
+                                    <td><?php echo $value["estado_pago"]; ?></td>
                                     <td>
-                                        <a href="editar_estado_memb/<?php echo $value["id_estado_memb"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="editar_estado_pago/<?php echo $value["id_estado_pago"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
 
-                                        <button type="button" class="btn btn-danger btnEliminarEstadoMemb" id_estado_memb_eliminar="<?php echo $value["id_estado_memb"]; ?>"><i class="fas fa-trash"></i></button>
+                                        <button type="button" class="btn btn-danger btnEliminarEstadoPago" id_estado_pago_eliminar="<?php echo $value["id_estado_pago"]; ?>"><i class="fas fa-trash"></i></button>
                                         
                                     </td>
                                 </tr>
                                 
                             <?php } ?>
-                            <?php ControladorEstadosMembresia::ctrEliminarEstado();?>
+                            <?php ControladorEstadosPago::ctrEliminarEstado();?>
                                 
                             <input type="hidden" id="url" value="<?php echo $url; ?>">
                         </tbody>

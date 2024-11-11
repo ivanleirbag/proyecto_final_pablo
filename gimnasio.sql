@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-11-2024 a las 17:35:46
+-- Tiempo de generación: 11-11-2024 a las 06:17:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -37,8 +37,8 @@ CREATE TABLE `clientes` (
   `telefono_cliente` int(11) NOT NULL,
   `email_cliente` varchar(50) NOT NULL,
   `fechaIns_cliente` date NOT NULL,
-  `id_plan` int(11) NOT NULL,
-  `id_estado_memb` int(11) NOT NULL
+  `id_plan` int(11) DEFAULT NULL,
+  `id_estado_memb` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -46,9 +46,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `dni_cliente`, `fechaNac_cliente`, `direccion_cliente`, `telefono_cliente`, `email_cliente`, `fechaIns_cliente`, `id_plan`, `id_estado_memb`) VALUES
-(1, 'EDITADO', 'EDITADO PRIMER EDIT', 44555666, '1999-01-01', 'DIRECCION EDITADA', 1111111, 'editado@primeredit.com', '2024-01-01', 1, 1),
-(2, 'Alberto', 'Example', 44555666, '2000-02-01', 'Calle Nunca Viva 321', 3333444, 'example@client.com', '2024-01-02', 1, 1),
-(3, 'Pedro', 'Primeragregar', 33444555, '2003-02-03', 'Calle al lado de siempre viva 111', 4449955, 'hola@quetal.com', '2024-02-03', 1, 1);
+(1, 'ff', 'ff', 11223344, '7733-06-06', '2222', 33333, 'aaaa@fff.com', '0004-02-11', 1, 1),
+(2, 'Alberto', 'Example', 44555666, '2000-02-01', 'Calle Nunca Viva 321', 3333444, 'example@client.com', '2024-01-02', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -64,8 +63,8 @@ CREATE TABLE `entrenadores` (
   `fechaContr_entrenador` date NOT NULL,
   `email_entrenador` varchar(50) NOT NULL,
   `telefono_entrenador` int(11) NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `id_especialidad` int(11) NOT NULL
+  `id_estado` int(11) DEFAULT NULL,
+  `id_especialidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -132,7 +131,9 @@ CREATE TABLE `estados_membresias` (
 
 INSERT INTO `estados_membresias` (`id_estado_memb`, `estado_memb`, `desc_estado_memb`) VALUES
 (1, 'Activo', 'El cliente esta habilitado a usar las instalaciones'),
-(2, 'Inactivo', 'El cliente no esta habilitado a usar las instalaciones');
+(2, 'Inactivo', 'El cliente no esta habilitado a usar las instalaciones'),
+(3, 'ESTADO AGREGADO', 'PRIMER ESTADO AGREGADO'),
+(4, 'hh', 'hh');
 
 -- --------------------------------------------------------
 
@@ -186,18 +187,17 @@ CREATE TABLE `pagos` (
   `id_pago` int(11) NOT NULL,
   `fecha_pago` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `monto_pago` decimal(10,2) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `id_clase` int(11) NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `id_metodopago` int(11) NOT NULL
+  `id_cliente` int(11) DEFAULT NULL,
+  `id_estado` int(11) DEFAULT NULL,
+  `id_metodopago` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `pagos`
 --
 
-INSERT INTO `pagos` (`id_pago`, `fecha_pago`, `monto_pago`, `id_cliente`, `id_clase`, `id_estado`, `id_metodopago`) VALUES
-(1, '2024-11-08 21:13:36', 1000.00, 1, 1, 1, 3);
+INSERT INTO `pagos` (`id_pago`, `fecha_pago`, `monto_pago`, `id_cliente`, `id_estado`, `id_metodopago`) VALUES
+(1, '2024-11-08 21:13:36', 1000.00, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -212,7 +212,7 @@ CREATE TABLE `plan` (
   `duracion_plan` tinyint(4) NOT NULL,
   `sesiones_semanales_plan` int(11) NOT NULL,
   `nombre_plan` varchar(50) NOT NULL,
-  `id_entrenador` int(11) NOT NULL
+  `id_entrenador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -298,7 +298,6 @@ ALTER TABLE `metodopago`
 ALTER TABLE `pagos`
   ADD PRIMARY KEY (`id_pago`),
   ADD KEY `idcliente` (`id_cliente`),
-  ADD KEY `idclase` (`id_clase`),
   ADD KEY `statusid` (`id_estado`),
   ADD KEY `idmetodopago` (`id_metodopago`);
 
@@ -325,7 +324,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `entrenadores`
@@ -349,7 +348,7 @@ ALTER TABLE `estados_entrenadores`
 -- AUTO_INCREMENT de la tabla `estados_membresias`
 --
 ALTER TABLE `estados_membresias`
-  MODIFY `id_estado_memb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estado_memb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `estados_pago`
@@ -389,29 +388,29 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD CONSTRAINT `estadoid` FOREIGN KEY (`id_estado_memb`) REFERENCES `estados_membresias` (`id_estado_memb`),
-  ADD CONSTRAINT `planid` FOREIGN KEY (`id_plan`) REFERENCES `plan` (`id_plan`);
+  ADD CONSTRAINT `estadoid` FOREIGN KEY (`id_estado_memb`) REFERENCES `estados_membresias` (`id_estado_memb`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `planid` FOREIGN KEY (`id_plan`) REFERENCES `plan` (`id_plan`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `entrenadores`
 --
 ALTER TABLE `entrenadores`
-  ADD CONSTRAINT `especialidadid` FOREIGN KEY (`id_especialidad`) REFERENCES `especialidades` (`id_especialidad`),
-  ADD CONSTRAINT `estid` FOREIGN KEY (`id_entrenador`) REFERENCES `estados_entrenadores` (`id_estado_ent`);
+  ADD CONSTRAINT `especialidadestado` FOREIGN KEY (`id_estado`) REFERENCES `estados_entrenadores` (`id_estado_ent`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `especialidadid` FOREIGN KEY (`id_especialidad`) REFERENCES `especialidades` (`id_especialidad`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  ADD CONSTRAINT `idcliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
-  ADD CONSTRAINT `idmetodopago` FOREIGN KEY (`id_metodopago`) REFERENCES `metodopago` (`id_metodoPago`),
-  ADD CONSTRAINT `statusid` FOREIGN KEY (`id_estado`) REFERENCES `estados_membresias` (`id_estado_memb`);
+  ADD CONSTRAINT `idcliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `idmetodopago` FOREIGN KEY (`id_metodopago`) REFERENCES `metodopago` (`id_metodoPago`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `statusid` FOREIGN KEY (`id_estado`) REFERENCES `estados_membresias` (`id_estado_memb`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `plan`
 --
 ALTER TABLE `plan`
-  ADD CONSTRAINT `entrenadorid` FOREIGN KEY (`id_entrenador`) REFERENCES `entrenadores` (`id_entrenador`);
+  ADD CONSTRAINT `entrenadorid` FOREIGN KEY (`id_entrenador`) REFERENCES `entrenadores` (`id_entrenador`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
