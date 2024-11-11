@@ -9,7 +9,6 @@ class ControladorPlanes
     {
         $tabla = "plan";
         $respuesta = ModeloPlanes::mdlMostrarPlanes($tabla, $item, $valor);
-
         return $respuesta;
     }
 
@@ -31,9 +30,8 @@ class ControladorPlanes
                 "id_entrenador" => $_POST["id_entrenador"]
             );
 
-            $url = PlantillaControlador::url() . "planes";
+            $url = PlantillaControlador::url() . "planes_entrenamiento";
             $respuesta = ModeloPlanes::mdlAgregarPlan($tabla, $datos);
-
             if ($respuesta == "ok") {
                 echo '<script>
                 fncSweetAlert(
@@ -65,7 +63,7 @@ class ControladorPlanes
                 "id_plan" => $_POST["id_plan"]
             );
 
-            $url = PlantillaControlador::url() . "planes";
+            $url = PlantillaControlador::url() . "planes_entrenamiento";
             $respuesta = ModeloPlanes::mdlEditarPlan($tabla, $datos);
 
             if ($respuesta == "ok") {
@@ -85,10 +83,10 @@ class ControladorPlanes
     =============================================*/
     static public function ctrEliminarPlan()
     {
-        $url = PlantillaControlador::url() . "planes";
-        if (isset($_GET["id_eliminar"])) {
+        $url = PlantillaControlador::url() . "planes_entrenamiento";
+        if (isset($_GET["id_plan_eliminar"])) {
             $tabla = "plan";
-            $datos = $_GET["id_eliminar"];
+            $datos = $_GET["id_plan_eliminar"];
             $respuesta = ModeloPlanes::mdlEliminarPlan($tabla, $datos);
 
             if ($respuesta == "ok") {

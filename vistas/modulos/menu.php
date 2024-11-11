@@ -40,6 +40,10 @@
                         <i data-feather="home"></i>                     
                         <span> Estados de Pago </span>
                     </a>
+                    <a href="<?php echo $url; ?>planes_entrenamiento">
+                        <i data-feather="home"></i>                     
+                        <span> Planes de entrenamiento </span>
+                    </a>
                 </li>
                 
             </ul>
