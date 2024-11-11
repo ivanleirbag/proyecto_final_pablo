@@ -93,7 +93,7 @@ ELIMINAR DATO
             } else {
                 return "error";
             }
-        } catch (Exception $e) {
+        }catch (Exception $e) {
             return "Error: " . $e->getMessage();
         }
     }

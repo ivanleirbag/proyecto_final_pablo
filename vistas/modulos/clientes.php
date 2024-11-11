@@ -55,11 +55,11 @@ $clientes = ControladorClientes::ctrMostrarClientes(null, null);
                                         <a href="editar_cliente/<?php echo $value["id_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
 
                                         <button type="button" class="btn btn-danger btnEliminarCliente" id_cliente_eliminar="<?php echo $value["id_cliente"]; ?>"><i class="fas fa-trash"></i></button>
-                                        <?php ControladorClientes::ctrEliminarCliente();?>
                                     </td>
                                 </tr>
 
                             <?php } ?>
+                            <?php ControladorClientes::ctrEliminarCliente();?>
 
                             <input type="hidden" id="url" value="<?php echo $url; ?>">
                         </tbody>

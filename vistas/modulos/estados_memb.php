@@ -38,12 +38,13 @@ $estados_memb = ControladorEstadosMembresia::ctrMostrarEstados(null, null);
                                         <a href="editar_estado_memb/<?php echo $value["id_estado_memb"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
 
                                         <button type="button" class="btn btn-danger btnEliminarEstadoMemb" id_estado_memb_eliminar="<?php echo $value["id_estado_memb"]; ?>"><i class="fas fa-trash"></i></button>
-                                        <?php ControladorEstadosMembresia::ctrEliminarEstado();?>
+                                        
                                     </td>
                                 </tr>
-
+                                
                             <?php } ?>
-
+                            <?php ControladorEstadosMembresia::ctrEliminarEstado();?>
+                                
                             <input type="hidden" id="url" value="<?php echo $url; ?>">
                         </tbody>
                     </table>
