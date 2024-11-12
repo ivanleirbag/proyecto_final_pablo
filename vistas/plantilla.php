@@ -56,7 +56,7 @@ $url = PlantillaControlador::url()
                 <div class="content">
                     
                     <?php
-                    $paginasPermitidas = ["inicio",
+                    $paginasPermitidas = ["inicio", "usuario",
                                          "agregar_cliente", "editar_cliente", "clientes",
                                           "estados_memb", "editar_estado_memb", "agregar_estado_memb",
                                           "estados_pago", "editar_estado_pago", "agregar_estado_pago",

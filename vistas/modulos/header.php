@@ -21,9 +21,9 @@
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                    
                     <!-- item-->
-                    <a href="pages-profile.html" class="dropdown-item notify-item">
+                    <a href="usuario" class="dropdown-item notify-item">
                         <i class="mdi mdi-account-circle-outline fs-16 align-middle"></i>
-                        <span>My Account</span>
+                        <span>Mi Cuenta</span>
                     </a>                  
 
                     <div class="dropdown-divider"></div>

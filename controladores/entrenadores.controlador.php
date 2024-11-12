@@ -44,6 +44,14 @@ class ControladorEntrenadores
                     "' . $url . '"
                     );
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -78,6 +86,14 @@ class ControladorEntrenadores
                     "' . $url . '"
                     );
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -95,6 +111,14 @@ class ControladorEntrenadores
                 echo '<script>
                     fncSweetAlert("success", "El entrenador se eliminó correctamente", "' . $url . '");
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }

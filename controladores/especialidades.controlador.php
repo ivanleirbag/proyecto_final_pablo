@@ -31,10 +31,14 @@ class ControladorEspecialidades
                 echo '<script>
                     fncSweetAlert("success", "La especialidad se agregó correctamente", "' . $url . '");
                 </script>';
-            } else {
+            }else{
                 echo '<script>
-                    fncSweetAlert("error", "Hubo un error al agregar la especialidad", "' . $url . '");
-                </script>';
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -62,10 +66,14 @@ class ControladorEspecialidades
                 echo '<script>
                     fncSweetAlert("success", "La especialidad se modificó correctamente", "' . $url . '");
                 </script>';
-            } else {
+            } else{
                 echo '<script>
-                    fncSweetAlert("error", "Hubo un error al modificar la especialidad", "' . $url . '");
-                </script>';
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -88,13 +96,17 @@ class ControladorEspecialidades
                 echo '<script>
                     fncSweetAlert("success", "La especialidad se eliminó correctamente", "' . $url . '");
                 </script>';
-            } else {
+            } else{
                 echo '<script>
-                    fncSweetAlert("error", "Hubo un error al eliminar la especialidad", "' . $url . '");
-                </script>';
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
 }
-?>
+
 

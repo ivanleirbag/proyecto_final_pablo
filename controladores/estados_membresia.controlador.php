@@ -32,6 +32,14 @@ class ControladorEstadosMembresia
             "' . $url . '"
             );
             </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -59,7 +67,14 @@ class ControladorEstadosMembresia
             "' . $url . '"
             );
             </script>';
-            exit();
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -75,6 +90,14 @@ class ControladorEstadosMembresia
                 echo '<script>
                 fncSweetAlert("success", "El estado se eliminó correctamente", "' . $url . '");
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "success",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }

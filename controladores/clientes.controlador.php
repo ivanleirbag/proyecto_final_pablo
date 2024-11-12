@@ -46,6 +46,14 @@ class ControladorClientes
             "' . $url . '"
             );
             </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -81,6 +89,14 @@ class ControladorClientes
             "' . $url . '"
             );
             </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -89,13 +105,21 @@ class ControladorClientes
         $url = PlantillaControlador::url() . "clientes";
         if (isset($_GET["id_cliente_eliminar"])){
             $tabla = "clientes";
-            $datos = $_GET["id_cliente_eliminar"];
-            $respuesta = ModeloClientes::mdlEliminarCliente($tabla, $datos);
+            $dato = $_GET["id_cliente_eliminar"];
+            $respuesta = ModeloClientes::mdlEliminarCliente($tabla, $dato);
             if ($respuesta == "ok") {
 
                 echo '<script>
                 fncSweetAlert("success", "El cliente se eliminó correctamente", "' . $url . '");
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
