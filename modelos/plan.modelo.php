@@ -22,7 +22,8 @@ class ModeloPlanes
         } else {
             // Obtener todos los registros
             try {
-                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+                $stmt = Conexion::conectar()->prepare("SELECT p.id_plan, p.descrip_plan, p.cod_plan, p.duracion_plan, p.sesiones_semanales_plan, p.nombre_plan, e.nombre_entrenador 
+                                                                FROM plan p INNER JOIN entrenadores e ON e.id_entrenador = p.id_entrenador;");
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (Exception $e) {
@@ -98,6 +99,7 @@ class ModeloPlanes
         try {
             $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_plan = :id_plan");
             $stmt->bindParam(":id_plan", $dato, PDO::PARAM_INT);
+            
             if ($stmt->execute()) {
                 return "ok";
             } else {

@@ -36,13 +36,33 @@
                         <i data-feather="home"></i>                     
                         <span> Estados de Membresia </span>
                     </a>
-                    <a href="<?php echo $url; ?>estados_pago">
+                    <a href="<?php echo $url; ?>entrenadores">
                         <i data-feather="home"></i>                     
-                        <span> Estados de Pago </span>
+                        <span> Entrenadores </span>
+                    </a>
+                    <a href="<?php echo $url; ?>estEntrenadores">
+                        <i data-feather="home"></i>                     
+                        <span> Estado Entrenadores </span>
+                    </a>
+                    <a href="<?php echo $url; ?>especialidades">
+                        <i data-feather="home"></i>                     
+                        <span> Especialidades </span>
                     </a>
                     <a href="<?php echo $url; ?>planes_entrenamiento">
                         <i data-feather="home"></i>                     
                         <span> Planes de entrenamiento </span>
+                    </a>
+                    <a href="<?php echo $url; ?>pagos">
+                        <i data-feather="home"></i>                     
+                        <span> Pagos </span>
+                    </a>
+                    <a href="<?php echo $url; ?>metodosPago">
+                        <i data-feather="home"></i>                     
+                        <span> Métodos de Pago </span>
+                    </a>
+                    <a href="<?php echo $url; ?>estados_pago">
+                        <i data-feather="home"></i>                     
+                        <span> Estados de Pago </span>
                     </a>
                 </li>
                 

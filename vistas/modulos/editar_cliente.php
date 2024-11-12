@@ -1,6 +1,7 @@
 <?php
 $cliente = ControladorClientes::ctrMostrarClientes("id_cliente", $_GET["id"]);
 $estados_memb = ControladorEstadosMembresia::ctrMostrarEstados(null, null);
+$planes = ControladorPlanes::ctrMostrarPlanes(null, null);
 ?>
 
 <div class="col-lg-6 mt-3">
@@ -55,17 +56,27 @@ $estados_memb = ControladorEstadosMembresia::ctrMostrarEstados(null, null);
 
                 <div class="mb-3">
                     <label for="example-input-normal" class="form-label">Plan de Entrenamiento</label>
-                    <input type="text" id="example-input-normal" name="id_plan" class="form-control" required>
+                    <select name="id_plan" id="id_plan" class="form-control" required>
+                        <option value="">Seleccione una opción</option>
+                        <?php foreach ($planes as $key => $value) { ?>
+                            <option value="<?php echo $value["id_plan"]; ?>" 
+                                <?php if ($value["id_plan"] == $cliente["id_plan"]) echo "selected"; ?>>
+                                <?php echo $value["nombre_plan"]; ?>
+                            </option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="example-input-normal" class="form-label">Estado de Membresía</label>
                     <select name="id_estado_memb" id="id_estado_memb" class="form-control" required>
                         <option value="">Seleccione una opción</option>
-                        <?php
-                            foreach ($estados_memb as $key => $value){ ?>
-                                <option value="<?php echo $value["id_estado_memb"]; ?>"><?php echo $value["estado_memb"]; ?></option>
-                            <?php }?>
+                        <?php foreach ($estados_memb as $key => $value) { ?>
+                            <option value="<?php echo $value["id_estado_memb"]; ?>" 
+                                <?php if ($value["id_estado_memb"] == $cliente["id_estado_memb"]) echo "selected"; ?>>
+                                <?php echo $value["estado_memb"]; ?>
+                            </option>
+                        <?php } ?>
                     </select>
                 </div>
 
