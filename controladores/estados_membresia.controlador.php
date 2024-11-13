@@ -35,7 +35,7 @@ class ControladorEstadosMembresia
             }else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );
@@ -70,7 +70,7 @@ class ControladorEstadosMembresia
             }else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );
@@ -93,7 +93,7 @@ class ControladorEstadosMembresia
             }else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );

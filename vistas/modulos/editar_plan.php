@@ -41,7 +41,7 @@ $entrenadores = ControladorEntrenadores::ctrMostrarEntrenadores(null, null);
                             <?php foreach ($entrenadores as $key => $value) { ?>
                                 <option value="<?php echo $value["id_entrenador"]; ?>" 
                                     <?php if ($value["id_entrenador"] == $planes["id_entrenador"]) echo "selected"; ?>>
-                                    <?php echo $value["nombre_entrenador"]; ?>
+                                    <?php echo $value["nombre_entrenador"]; ?> <?php echo $value["apellido_entrenador"]; ?>
                                 </option>
                             <?php } ?>
                         </select>

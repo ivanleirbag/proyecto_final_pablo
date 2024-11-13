@@ -32,6 +32,14 @@ class ControladorEstadosEntrenadores
             "' . $url . '"
             );
             </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -59,7 +67,14 @@ class ControladorEstadosEntrenadores
             "' . $url . '"
             );
             </script>';
-                exit();
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -77,6 +92,14 @@ class ControladorEstadosEntrenadores
                 echo '<script>
                 fncSweetAlert("success", "El estado se eliminó correctamente", "' . $url . '");
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }

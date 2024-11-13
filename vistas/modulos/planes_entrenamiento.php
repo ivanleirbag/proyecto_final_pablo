@@ -41,7 +41,7 @@ $planes = ControladorPlanes::ctrMostrarPlanes(null, null);
                                     <td><?php echo $value["descrip_plan"]; ?></td>
                                     <td><?php echo $value["duracion_plan"]; ?></td>
                                     <td><?php echo $value["sesiones_semanales_plan"]; ?></td>
-                                    <td><?php echo $value["nombre_entrenador"]; ?></td>
+                                    <td><?php echo $value["nombre_entrenador"]; ?> <?php echo $value["apellido_entrenador"]; ?></td>
                                     <td>
                                         <a href="editar_plan/<?php echo $value["id_plan"]; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
 

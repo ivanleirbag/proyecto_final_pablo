@@ -24,11 +24,12 @@ MOSTRAR DATOS
         } else {
             // pedimos todos los registros
             try {
-                $stmt = Conexion::conectar()->prepare("SELECT p.id_pago, p.fecha_pago, p.monto_pago, c.nombre_cliente, e.estado_pago,
+                $stmt = Conexion::conectar()->prepare("SELECT p.id_pago, l.nombre_plan, p.fecha_pago, p.monto_pago, c.nombre_cliente, c.apellido_cliente, e.estado_pago,
                                                             m.nombre_metodoPago FROM pagos as p
                                                             INNER JOIN clientes as c ON p.id_cliente = c.id_cliente
                                                             INNER JOIN estados_pago as e ON p.id_estado = e.id_estado_pago
-                                                            INNER JOIN metodopago as m ON p.id_metodopago = m.id_metodopago");
+                                                            INNER JOIN metodopago as m ON p.id_metodopago = m.id_metodopago
+                                                            INNER JOIN plan as l ON l.id_plan = p.id_plan");
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (Exception $e) {
@@ -45,10 +46,12 @@ AGREGAR DATOS
     static public function mdlAgregarPago($tabla, $datos)
     {
         try {
-            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_pago, fecha_pago, monto_pago, id_cliente, id_estado, id_metodopago) 
-                                                            VALUES (:id_pago, :fecha_pago, :monto_pago, :id_cliente, :id_estado, :id_metodopago)");
+            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_pago,id_plan, fecha_pago, monto_pago, id_cliente, id_estado, id_metodopago) 
+                                                            VALUES (:id_pago,:id_plan, :fecha_pago, :monto_pago, :id_cliente, :id_estado, :id_metodopago)");
 
             // UN ENLACE POR CADA DATO, TENER EN CUENTA EL TIPO DE DATO STR O INT
+            
+            $stmt->bindParam(":id_plan", $datos["id_plan"], PDO::PARAM_INT);
             $stmt->bindParam(":id_pago", $datos["id_pago"], PDO::PARAM_INT);
             $stmt->bindParam(":fecha_pago", $datos["fecha_pago"], PDO::PARAM_STR);
             $stmt->bindParam(":monto_pago", $datos["monto_pago"], PDO::PARAM_STR); 
@@ -72,6 +75,7 @@ AGREGAR DATOS
     {
         try {
             $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET 
+                                                            id_plan = :id_plan, 
                                                             fecha_pago = :fecha_pago,
                                                             monto_pago = :monto_pago,
                                                             id_cliente = :id_cliente, 
@@ -80,6 +84,7 @@ AGREGAR DATOS
                                                             WHERE id_pago = :id_pago");
             
             $stmt->bindParam(":id_pago", $datos["id_pago"], PDO::PARAM_INT);
+            $stmt->bindParam(":id_plan", $datos["id_plan"], PDO::PARAM_INT);
             $stmt->bindParam(":fecha_pago", $datos["fecha_pago"], PDO::PARAM_STR);
             $stmt->bindParam(":monto_pago", $datos["monto_pago"], PDO::PARAM_STR); 
             $stmt->bindParam(":id_cliente", $datos["id_cliente"], PDO::PARAM_INT); 

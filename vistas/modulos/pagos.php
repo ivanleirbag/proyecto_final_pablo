@@ -22,6 +22,7 @@ $pagos = ControladorPagos::ctrMostrarPagos(null, null);
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Fecha de pago</th>
+                                <th scope="col">Plan de entrenamiento</th>
                                 <th scope="col">Monto</th>
                                 <th scope="col">Cliente</th>
                                 <th scope="col">Estado de pago</th>
@@ -31,13 +32,13 @@ $pagos = ControladorPagos::ctrMostrarPagos(null, null);
                         <tbody>
 
                             <?php foreach ($pagos as $key => $value) { ?>
-
+                                
                                 <tr>
-
                                     <td><?php echo $value["id_pago"]; ?></td>
                                     <td><?php echo $value["fecha_pago"]; ?></td>
+                                    <td><?php echo $value["nombre_plan"]; ?></td>
                                     <td><?php echo $value["monto_pago"]; ?></td>
-                                    <td><?php echo $value["nombre_cliente"]; ?></td>
+                                    <td><?php echo $value["nombre_cliente"]; ?> <?php echo $value["apellido_cliente"];?></td>
                                     <td><?php echo $value["estado_pago"]; ?></td>
                                     <td><?php echo $value["nombre_metodoPago"]; ?></td>
                                     <td>

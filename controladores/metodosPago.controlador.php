@@ -31,10 +31,14 @@ class ControladorMetodosPago
                 echo '<script>
                     fncSweetAlert("success", "El método de pago se agregó correctamente", "' . $url . '");
                 </script>';
-            } else {
+            } else{
                 echo '<script>
-                    fncSweetAlert("error", "Hubo un error al agregar el método de pago", "' . $url . '");
-                </script>';
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -59,10 +63,14 @@ class ControladorMetodosPago
                 echo '<script>
                     fncSweetAlert("success", "El método de pago se modificó correctamente", "' . $url . '");
                 </script>';
-            } else {
+            }else{
                 echo '<script>
-                    fncSweetAlert("error", "Hubo un error al modificar el método de pago", "' . $url . '");
-                </script>';
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -85,10 +93,14 @@ class ControladorMetodosPago
                 echo '<script>
                     fncSweetAlert("success", "El método de pago se eliminó correctamente", "' . $url . '");
                 </script>';
-            } else {
+            }else{
                 echo '<script>
-                    fncSweetAlert("error", "Hubo un error al eliminar el método de pago", "' . $url . '");
-                </script>';
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }

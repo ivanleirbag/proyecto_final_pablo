@@ -34,7 +34,7 @@ class ControladorEspecialidades
             }else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );
@@ -69,7 +69,7 @@ class ControladorEspecialidades
             } else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );
@@ -99,7 +99,7 @@ class ControladorEspecialidades
             } else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );

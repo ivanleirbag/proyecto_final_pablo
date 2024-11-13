@@ -2,6 +2,7 @@
 $clientes = ControladorClientes::ctrMostrarClientes(null, null);
 $estados_pago = ControladorEstadosPago::ctrMostrarEstados(null, null);
 $metodosPago = ControladorMetodosPago::ctrMostrarMetodosPago(null, null);   
+$planes = ControladorPlanes::ctrMostrarPlanes(null, null);
 ?>
 
 <div class="col-lg-6 mt-3">
@@ -15,7 +16,17 @@ $metodosPago = ControladorMetodosPago::ctrMostrarMetodosPago(null, null);
 
             <form method="POST" action="">
 
-            <div class="mb-3">
+                <div class="mb-3">
+                    <label for="example-input-normal" class="form-label">Plan de entrenamiento</label>
+                    <select name="id_plan" id="id_plan" class="form-control" required>
+                        <option value="">Seleccione una opción</option>
+                        <?php
+                            foreach ($planes as $key => $value){ ?>
+                                <option value="<?php echo $value["id_plan"]; ?>"><?php echo $value["nombre_plan"]; ?></option>
+                            <?php }?>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="example-input-normal" class="form-label">Fecha de pago</label>
                     <input type="date" id="example-input-normal" name="fecha_pago" class="form-control" required>
                 </div>
@@ -31,7 +42,7 @@ $metodosPago = ControladorMetodosPago::ctrMostrarMetodosPago(null, null);
                         <option value="">Seleccione una opción</option>
                         <?php
                             foreach ($clientes as $key => $value){ ?>
-                                <option value="<?php echo $value["id_cliente"]; ?>"><?php echo $value["nombre_cliente"]; ?></option>
+                                <option value="<?php echo $value["id_cliente"]; ?>"><?php echo $value["nombre_cliente"]; ?> <?php echo $value["apellido_cliente"]; ?> DNI: <?php echo $value["dni_cliente"]; ?></option>
                             <?php }?>
                     </select>
                 </div>

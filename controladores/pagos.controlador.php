@@ -16,6 +16,7 @@ class ControladorPagos
             $tabla = "pagos"; //nombre de la tabla            
 
             $datos = array(
+                "id_plan" => $_POST["id_plan"],
                 "fecha_pago" => $_POST["fecha_pago"],
                 "monto_pago" => $_POST["monto_pago"],
                 "id_cliente" => $_POST["id_cliente"],
@@ -40,6 +41,14 @@ class ControladorPagos
             "' . $url . '"
             );
             </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -52,6 +61,7 @@ class ControladorPagos
 
             $datos = array(
                 "id_pago" => $_POST["id_pago"],
+                "id_plan" => $_POST["id_plan"],
                 "fecha_pago" => $_POST["fecha_pago"],
                 "monto_pago" => $_POST["monto_pago"],
                 "id_cliente" => $_POST["id_cliente"],
@@ -70,6 +80,14 @@ class ControladorPagos
             "' . $url . '"
             );
             </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -85,6 +103,14 @@ class ControladorPagos
                 echo '<script>
                 fncSweetAlert("success", "El pago se eliminó correctamente", "' . $url . '");
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }

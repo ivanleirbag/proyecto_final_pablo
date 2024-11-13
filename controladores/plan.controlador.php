@@ -40,6 +40,14 @@ class ControladorPlanes
                     "' . $url . '"
                 );
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -74,6 +82,14 @@ class ControladorPlanes
                     "' . $url . '"
                 );
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -93,6 +109,14 @@ class ControladorPlanes
                 echo '<script>
                 fncSweetAlert("success", "El plan se eliminó correctamente", "' . $url . '");
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }

@@ -47,7 +47,7 @@ class ControladorEntrenadores
             }else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );
@@ -89,7 +89,7 @@ class ControladorEntrenadores
             }else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );
@@ -114,7 +114,7 @@ class ControladorEntrenadores
             }else{
                 echo '<script>
             fncSweetAlert(
-            "success",
+            "error",
             "'.$respuesta.'",
             "' . $url . '"
             );

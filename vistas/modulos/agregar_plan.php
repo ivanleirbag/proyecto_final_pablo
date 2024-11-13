@@ -39,7 +39,7 @@ $entrenadores = ControladorEntrenadores::ctrMostrarEntrenadores(null, null);
                         <option value="">Seleccione una opción</option>
                         <?php
                             foreach ($entrenadores as $key => $value){ ?>
-                                <option value="<?php echo $value["id_entrenador"]; ?>"><?php echo $value["nombre_entrenador"]; ?></option>
+                                <option value="<?php echo $value["id_entrenador"]; ?>"><?php echo $value["nombre_entrenador"]; ?> <?php echo $value["apellido_entrenador"]; ?></option>
                             <?php }?>
                     </select>
                 </div>

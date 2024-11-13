@@ -31,6 +31,14 @@ class ControladorEstadosPago
             "' . $url . '"
             );
             </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -57,7 +65,14 @@ class ControladorEstadosPago
             "' . $url . '"
             );
             </script>';
-            exit();
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }
@@ -73,6 +88,14 @@ class ControladorEstadosPago
                 echo '<script>
                 fncSweetAlert("success", "El estado se eliminó correctamente", "' . $url . '");
                 </script>';
+            }else{
+                echo '<script>
+            fncSweetAlert(
+            "error",
+            "'.$respuesta.'",
+            "' . $url . '"
+            );
+            </script>';
             }
         }
     }

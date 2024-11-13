@@ -3,6 +3,7 @@ $pagos = ControladorPagos::ctrMostrarPagos("id_pago", $_GET["id"]);
 $clientes = ControladorClientes::ctrMostrarClientes(null, null);
 $estados_pago = ControladorEstadosPago::ctrMostrarEstados(null, null);
 $metodosPago = ControladorMetodosPago::ctrMostrarMetodosPago(null, null);
+$planes = ControladorPlanes::ctrMostrarPlanes(null, null);
 ?>
 
 <div class="col-lg-6 mt-3">
@@ -16,10 +17,21 @@ $metodosPago = ControladorMetodosPago::ctrMostrarMetodosPago(null, null);
 
             <form method="POST">
                 <div class="mb-3">
+                    <label for="example-input-normal" class="form-label">Plan de entrenamiento</label>
+                    <select name="id_plan" id="id_plan" class="form-control" required>
+                        <option value="">Seleccione una opción</option>
+                        <?php foreach ($planes as $key => $value) { ?>
+                            <option value="<?php echo $value["id_plan"]; ?>" 
+                                <?php if ($value["id_plan"] == $pagos["id_plan"]) echo "selected"; ?>>
+                                <?php echo $value["nombre_plan"]; ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="example-input-normal" class="form-label">Fecha de pago</label>
                     <input type="date" id="example-input-normal" name="fecha_pago" class="form-control" value="<?php echo $pagos["fecha_pago"]; ?>" required>
                 </div>
-
                 <div class="mb-3">
                     <label for="monto_pago" class="form-label">Monto</label>
                     <input type="number" id="monto_pago" name="monto_pago" class="form-control" placeholder="00.00" step="0.01" min="0" value="<?php echo $pagos["monto_pago"]?>" required>
@@ -32,7 +44,7 @@ $metodosPago = ControladorMetodosPago::ctrMostrarMetodosPago(null, null);
                         <?php foreach ($clientes as $key => $value) { ?>
                             <option value="<?php echo $value["id_cliente"]; ?>" 
                                 <?php if ($value["id_cliente"] == $pagos["id_cliente"]) echo "selected"; ?>>
-                                <?php echo $value["nombre_cliente"]; ?>
+                                <?php echo $value["id_cliente"]; ?>"><?php echo $value["nombre_cliente"]; ?> <?php echo $value["apellido_cliente"]; ?> DNI: <?php echo $value["dni_cliente"]; ?>
                             </option>
                         <?php } ?>
                     </select>

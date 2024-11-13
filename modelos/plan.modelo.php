@@ -22,7 +22,7 @@ class ModeloPlanes
         } else {
             // Obtener todos los registros
             try {
-                $stmt = Conexion::conectar()->prepare("SELECT p.id_plan, p.descrip_plan, p.cod_plan, p.duracion_plan, p.sesiones_semanales_plan, p.nombre_plan, e.nombre_entrenador 
+                $stmt = Conexion::conectar()->prepare("SELECT p.id_plan, p.descrip_plan, p.cod_plan, p.duracion_plan, p.sesiones_semanales_plan, p.nombre_plan, e.nombre_entrenador, e.apellido_entrenador 
                                                                 FROM plan p INNER JOIN entrenadores e ON e.id_entrenador = p.id_entrenador;");
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
